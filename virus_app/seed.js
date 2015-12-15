@@ -14,7 +14,7 @@ var site1 = new Site({
   description: "Pet the dog!",
   link: "http://dogs.are.the.most.moe/",
   vote: 1,
-  site_img_link: "./public/siteImages/petDog.png",
+  site_img_link: "./siteImages/petDog.png",
   category: "completely pointless"
 });
 
@@ -23,7 +23,7 @@ var site2 = new Site({
   description: "Selfies with a twist",
   link: "http://swat.rtgp.xyz/",
   vote: 2,
-  site_img: "./public/siteImages/selfieChips.jpeg",
+  site_img_link: "./siteImages/selfieChips.jpeg",
   category: "odd"
 });
 
@@ -32,7 +32,7 @@ var site3 = new Site({
   description: "Shred of the week",
   link: "https://www.ssiworld.com/en/watch_it_shred?where=sotm&cat=cat&tpl=sml&page=1#topcontrols",
   vote: 0,
-  site_img: "./public/siteImages/shred.png",
+  site_img_link: "./siteImages/shred.png",
   category: "mildly interesting"
 });
 

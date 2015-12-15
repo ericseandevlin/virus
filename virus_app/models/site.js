@@ -3,9 +3,9 @@ var siteSchema = require('./site').schema;
 
 // SCHEMA
 var siteSchema = new mongoose.Schema({
-  title: String,
+  title: { type: String, required: true, },
   description: String,
-	link: { type: String, required: true, unique: true },
+	link: { type: String, required: true, },
 	vote: Number,
 	site_img_link: String,
 	category: String,
