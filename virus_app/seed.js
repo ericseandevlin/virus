@@ -66,7 +66,7 @@ var site5 = new Site({
   description: "So fun you'll go insane.",
   link: "http://www.ballonastring.com/",
   vote: 0,
-  site_img_link: "./siteImages/shred.png",
+  site_img_link: "./siteImages/ballonstring.png",
   category: "interactive"
 });
 site5.save(function(err) {
