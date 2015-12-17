@@ -16,6 +16,9 @@ angular.module('Cyberpages', []).directive('ngcyberpages', function() {
       self.site = {};
       self.newSite = {};
 
+      self.modalHide = true;
+      self.newEdit = true;
+
       // ==================
       // get all sites
       // ==================
@@ -33,6 +36,28 @@ angular.module('Cyberpages', []).directive('ngcyberpages', function() {
       };
       this.getSites();
 
+      // ==================
+      // open modal
+      // ==================
+      //bool is a boolean
+      this.openModal = function(string) {
+        console.log("open modal");
+        self.modalHide = false;
+
+        //new is true, false is edit
+          self.newEdit = string;
+      };
+
+      this.closeModal = function() {
+        console.log("close modal");
+        // Empty form
+        self.formTitle = '';
+        self.formDescription = '';
+        self.formLink = '';
+        self.formImg = '';
+
+        self.modalHide = true;
+      }
 
       // ==================
       // new site
@@ -47,14 +72,11 @@ angular.module('Cyberpages', []).directive('ngcyberpages', function() {
         }).then(function success(response) {
           self.sites.unshift(response.data);
 
-          // Empty form
-          self.formTitle = '';
-          self.formDescription = '';
-          self.formLink = '';
-          self.formImg = '';
         }, function error() {
           console.log('error');
+
         });
+        self.modalHide = true;
       } // end newSite
 
 
@@ -63,6 +85,7 @@ angular.module('Cyberpages', []).directive('ngcyberpages', function() {
       // ==================
       // passed site object from form
       this.populateForm = function(site) {
+        self.openModal(false);
 				self.formSiteId = site._id;
         self.formTitle = site.title;
         self.formDescription = site.description;
@@ -80,14 +103,9 @@ angular.module('Cyberpages', []).directive('ngcyberpages', function() {
           site_img_link: this.formImg }).then(function success (response) {
 					console.log('from server', response);
 					self.getSites();
-
-          // Empty form
-          self.formTitle = '';
-          self.formDescription = '';
-          self.formLink = '';
-          self.formImg = '';
         }, function error() {
           console.log('error');
+
         });
       } // end editSite
 

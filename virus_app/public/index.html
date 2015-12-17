@@ -3,35 +3,48 @@
   <head>
     <meta charset="utf-8">
     <title>VIRUS</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Freckle+Face|Roboto:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
-    <h1>VIRUS</h1>
-    <h4>a pointless site for pointless sites</h4>
+    <div id="content-wrapper" ngcyberpages>
 
+      <div id="row">
+        <div id="header">
+          <h1>VIRUS</h1>
+          <h5>a pointless site for pointless sites</h5>
+        <div>
+      </div>
 
+<!------- NEW/EDIT MODAL -------->
 
-		<div id="content-wrapper" ngcyberpages>
+		<button class="special" ng-click="cyberpages.openModal(true)">Add Site</button>
 
-<!------- NEW/EDIT SITE FORM -------->
+    <div class="modal" ng-hide="cyberpages.modalHide">
+      <div class='modal-content'>
+        <button id="close" ng-click="cyberpages.closeModal()">x</button>
+          <h3 ng-show="cyberpages.newEdit">SUBMIT YOUR POINTLESSNESS.</h3>
 
-			<button id="new-site">New Site</button>
+          <h3 ng-hide="cyberpages.newEdit">IT'S REALLY NOT WORTH FIXING...</h3>
 
-      <h3>Submit your pointlessness.</h3>
-      <form>
-        <label>Title: </label>
-        <input type="text" ng-model="cyberpages.formTitle"><br>
-        <label>Description: </label>
-        <input type="text" ng-model="cyberpages.formDescription"><br>
-        <label>Link: </label>
-        <input type="text" ng-model="cyberpages.formLink"><br>
-        <label>Image Link: </label>
-        <input type="text" ng-model="cyberpages.formImg"><br>
+          <form>
+            <label>Title: </label>
+            <input type="text" ng-model="cyberpages.formTitle"><br>
+            <label>Description: </label>
+            <input type="text" ng-model="cyberpages.formDescription"><br>
+            <label>Link: </label>
+            <input type="text" ng-model="cyberpages.formLink"><br>
+            <label>Image Link: </label>
+            <input type="text" ng-model="cyberpages.formImg"><br>
 
-        <button ng-click="cyberpages.newSite()">Add Site</button>
-        <button ng-click="cyberpages.editSite()">Update Site</button>
-      </form>
+            <hr>
+
+            <button class="special" ng-click="cyberpages.newSite()" ng-show="cyberpages.newEdit">Add Site</button>
+            <button class="special" ng-click="cyberpages.editSite()" ng-hide="cyberpages.newEdit">Update Site</button>
+          </form>
+        </div>
+      </div>
 
       <hr>
 
@@ -47,11 +60,15 @@
             <div class="details">
   						<strong>Title: </strong><a href="{{site.link}}">{{ site.title }}</a><br>
               <strong>Description: </strong>{{site.description}}<br>
+
               <button ng-click="cyberpages.populateForm(site)">Edit</button>
+
               <button ng-click="cyberpages.deleteSite(site._id)">Delete</button>
+
             </div>
 
 					</div>
+
 					<br>
 
 

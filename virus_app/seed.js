@@ -17,6 +17,10 @@ var site1 = new Site({
   site_img_link: "./siteImages/petDog.png",
   category: "completely pointless"
 });
+site1.save(function(err) {
+	if(err) return handleError(err);
+	console.log("Saved: " + site1);
+});
 
 var site2 = new Site({
   title: "S.W.A.T",
@@ -25,6 +29,10 @@ var site2 = new Site({
   vote: 2,
   site_img_link: "./siteImages/selfieChips.jpeg",
   category: "odd"
+});
+site2.save(function(err) {
+	if(err) return handleError(err);
+	console.log("Saved: " + site2);
 });
 
 var site3 = new Site({
@@ -35,18 +43,33 @@ var site3 = new Site({
   site_img_link: "./siteImages/shred.png",
   category: "mildly interesting"
 });
-
-site1.save(function(err) {
-	if(err) return handleError(err);
-	console.log("Saved: " + site1);
-});
-
-site2.save(function(err) {
-	if(err) return handleError(err);
-	console.log("Saved: " + site2);
-});
-
 site3.save(function(err) {
 	if(err) return handleError(err);
 	console.log("Saved: " + site3);
+});
+
+var site4 = new Site({
+  title: "Emot.es",
+  description: "A collection of every emoticon",
+  link: "http://emot.es/",
+  vote: 0,
+  site_img_link: "./siteImages/emotes.png",
+  category: "mildly interesting"
+});
+site4.save(function(err) {
+	if(err) return handleError(err);
+	console.log("Saved: " + site4);
+});
+
+var site5 = new Site({
+  title: "Ball on a String!",
+  description: "So fun you'll go insane.",
+  link: "http://www.ballonastring.com/",
+  vote: 0,
+  site_img_link: "./siteImages/shred.png",
+  category: "interactive"
+});
+site5.save(function(err) {
+	if(err) return handleError(err);
+	console.log("Saved: " + site5);
 });
